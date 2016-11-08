@@ -124,8 +124,7 @@ def convert_to_graph(board, trains):
     board[second_city].add(first_city)
 
 def find_path(board, first_city, second_city):
-  # Meghan's change
-  return True    # replace this line with your code
+  for train in trains:
 
 def calculate_score(board, tickets):
   score = 0
@@ -135,6 +134,16 @@ def calculate_score(board, tickets):
     else:
       score = score - ticket[2]
   return score
+
+def print_trains_and_tickets(trains, tickets, board):
+  print ("My trains are:")
+  for train in trains:
+    print (train[0] + " to " + train[1])
+    
+  print ("\nMy tickets are:")
+  for ticket in tickets:
+    if find_path(board, ticket[0], ticket[1]):
+      print (ticket[0] + " to " + ticket[1])
 
 # main
 
